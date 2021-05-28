@@ -52,6 +52,61 @@
   }
 </style>
 
+{% if section.settings.mobile_height %}
+  <style>
+    @media screen and (max-width: 767px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: 55px;
+      }
+    }
+  </style>
+{% else %}
+  <style>
+    @media screen and (max-width: 767px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: inherit;
+      }
+    }
+  </style>
+{% endif %}
+
+{% if section.settings.tablet_height %}
+  <style>
+    @media screen and (min-width: 768px) and (max-width: 1400px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: 55px;
+      }
+    }
+  </style>
+{% else %}
+  <style>
+    @media screen and (min-width: 768px) and (max-width: 1400px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: inherit;
+      }
+    }
+  </style>
+{% endif %}
+
+{% if section.settings.desktop_height %}
+  <style>
+    @media screen and (min-width: 1401px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: 55px;
+      }
+    }
+  </style>
+{% else %}
+  <style>
+    @media screen and (min-width: 1401px){
+      .product-collection--{{ section.id }} h3.product--title{
+      min-height: inherit;
+      }
+    }
+  </style>
+{% endif %}
+
+
 {% schema %}
 {
   "name": "Featured collection",
@@ -136,6 +191,28 @@
         "id": "color_text",
         "label": "Product text",
         "default": "#000"
+    },
+    {
+      "type": "header",
+      "content": "Set title 2 lines"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_height",
+      "label": "Mobile",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "tablet_height",
+      "label": "Tablet",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "desktop_height",
+      "label": "Desktop",
+      "default": true
     }
   ],
   "presets": [
