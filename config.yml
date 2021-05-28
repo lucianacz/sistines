@@ -1,0 +1,6 @@
+development:
+  password: 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
+  theme_id: 122766229695
+  store: the-sistines.myshopify.com
+  ignore_files:
+    - settings_data.json

@@ -1,0 +1,82 @@
+<script>
+  
+window.addEventListener("load", () => {  
+      let size = "sm"; // xs, sm, md, lg
+      let showUpperLimit = "false";
+      let badgeTheme = "white-on-black";
+      let isEligible = true;
+      let locale = "en_CA";
+      let currency = "CAD";
+                          
+      {% if template.name contains 'product' %}
+        let title = {{product.title | json}};
+        if (title.includes("Gift Card")) isEligible = false; 
+
+  
+        Afterpay.createPlacements({
+          targetSelector: '.product-form--price-wrapper', 
+          attributes: { 
+            amount:{{ product.selected_or_first_available_variant.price |   money_without_currency }},
+//             amountSelector,
+            size,
+            showUpperLimit,
+            isEligible,
+            badgeTheme,
+	    locale,
+   	    currency
+          }
+        });             
+      {% else if template.name == 'cart' %}
+        let cartItems = {{cart.items | json }};
+        let giftCardPresent = cartItems.some(item => item.gift_card);
+        if (giftCardPresent) {
+          isEligible = false;
+        }
+
+        Afterpay.createPlacements({
+          targetSelector: "[data-view='desktop'] .cart--total", 
+          attributes: { 
+            amount:{{ cart.total_price | money_without_currency }},
+           amountSelector: "[data-view='desktop'] .cart--total--price",
+            size,
+            showUpperLimit,
+            cartIsEligible: isEligible,
+            badgeTheme,
+	    	locale,
+   	    	currency
+          }
+        });
+          Afterpay.createPlacements({
+          targetSelector: "[data-view='mobile'] .cart--total", 
+          attributes: { 
+            amount:{{ cart.total_price | money_without_currency }},
+           	amountSelector: "[data-view='mobile'] .cart--total--price",
+            size,
+            showUpperLimit,
+            cartIsEligible: isEligible,
+            badgeTheme,
+	    	locale,
+   	   	 	currency
+          }
+        });
+      {% endif %}                                     
+  });
+</script>
+<style>
+  @media screen and (max-width:770px){ 
+     afterpay-placement {
+    
+     }
+  }
+  @media screen and (min-width:771px){
+     afterpay-placement {
+    
+     }
+  }
+  afterpay-placement {
+/*     --logo-badge-width: 100px; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+</style>
