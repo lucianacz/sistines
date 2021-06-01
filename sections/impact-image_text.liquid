@@ -44,11 +44,14 @@ data-text-width="{{ section.settings.text-width }}"
 >
 {% if cover_link %}<a href="{{ section.settings.link-url }}">{% endif %}
   <div class="featured-content--container">
-    <div class="featured-content--image"
-    data-aos="fade-up"
-    data-aos-easing="linear"
-    data-aos-duration="1500"
-    data-aos-anchor-placement="top-center">
+    <div class="featured-content--image"  
+  {% if section.settings.show_animation %}
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="{{ section.settings.animation }}"
+      data-aos-anchor-placement="top-center"  
+  {% endif %}
+>
     {% if section.settings.image %}
     {%
       render "framework--image",
@@ -209,12 +212,32 @@ data-text-width="{{ section.settings.text-width }}"
     },
     {
       "type": "header",
-      "content": "Content"
+      "content": "Image"
     },
     {
       "type": "image_picker",
       "id": "image",
       "label": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_animation",
+      "label": "Show animation",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "animation",
+      "label": "Animation duration",
+      "unit": "ms",
+      "min": 500,
+      "max": 2000,
+      "step": 100,
+      "default": 1000
+    },
+    {
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "text",
@@ -385,5 +408,11 @@ data-text-width="{{ section.settings.text-width }}"
 
 
 <script>
-  AOS.init();
+  AOS.init({
+    startEvent: 'load'
+});
+
+$(window).on('load', function() {
+    AOS.refresh();
+});
 </script>
