@@ -422,14 +422,11 @@
 
 
 /* TEXT WITH IMAGE */
-#shopify-section-impact-image_text .featured-content--text-container,
-#shopify-section-impact-image_text2 .featured-content--text-container{
+.impact-image_text .featured-content--text-container{
   max-width: initial;
 }
 
-#shopify-section-impact-image_text .featured-content--root,
-#shopify-section-impact-image_text2  .featured-content--root,
-#shopify-section-impact-image_text4 .featured-content--root{
+.impact-image_text .featured-content--root{
   padding: 0;
 }
 
@@ -503,4 +500,39 @@
   position: absolute;
   z-index: 1;
   top: 0;
+}
+
+/* POP UP */
+
+.modal-mask, .popup-modal-mask{
+  background-color: transparent;
+}
+
+
+.modal-on .popup-modal-close {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  opacity: 0;
+}
+
+.popup--heading{
+  padding-bottom: 15px;
+}
+
+.popup--root #contact_form{
+  padding-top: 20px;
+}
+
+.popup-modal .inner,
+.popup-modal .popup-image{
+  background-color: {{ settings.popup--background }};
+}
+
+.popup-modal-close .icon--cross path,
+.popup-modal .popup--heading,
+.popup-modal .popup--description,
+.popup-modal input {
+  color: {{ settings.popup--text }};
+  border-color: {{ settings.popup--text }};
 }

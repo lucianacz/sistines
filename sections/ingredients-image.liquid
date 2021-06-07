@@ -1,0 +1,139 @@
+{% assign overlay = section.settings.overlay | prepend: '0.' %}
+
+{% if section.settings.image != blank or section.settings.show_section %}  
+<section class="parallax-image"
+style="margin-top: {{ section.settings.margin_top }}px">
+  <div class="parallax"></div>
+  <div class="parallax-overlay"></div>
+  <div class="col-lg-12 text-box text-center"
+  {% if section.settings.background %}style="background: {{ section.settings.color_background }}"{% endif %}>
+    {% if section.settings.title != blank %}
+    <h2 class="featured-content--title" data-item="section-heading"
+    style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_size }}px;">
+    {{ section.settings.title | escape }}
+  </h2>
+  {% endif %}
+  
+  {% if section.settings.description != blank %}
+  <div class="featured-content--description" data-item="rte-content"
+  style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.text_size }}px;">
+  {{ section.settings.description }}
+</div>
+{% endif %}
+</div>
+</section>
+{% endif %}
+
+<style>
+.parallax-image .parallax{
+  background-image: url("{{ section.settings.image | img_url: 'master'}}");
+}
+
+.parallax-image .parallax-overlay{
+  background: rgba(0,0,0, {{ overlay }});
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Image parallax",
+  "settings": [
+  {
+    "type": "checkbox",
+    "id": "show_section",
+    "label": "Show section",
+    "default": true
+  },
+  {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Background image"
+  },
+  {
+    "type": "range",
+    "id": "overlay",
+    "label": "Overlay",
+    "unit": "%",
+    "min": 0,
+    "max": 50,
+    "step": 5,
+    "default": 40
+  },
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Heading",
+    "default": "Image with text"
+  },
+  {
+    "type": "richtext",
+    "id": "description",
+    "label": "Text",
+    "default": "<p>Use a combination of image and text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store</p>"
+  },
+  {
+    "type": "header",
+    "content": "Settings text"
+  },
+  {
+    "type": "checkbox",
+    "id": "background",
+    "label": "Show background",
+    "default": true
+  },
+  {
+    "type": "color",
+    "id": "color_background",
+    "label": "Color background",
+    "default": "#ffffff"
+  },
+  {
+    "type": "color",
+    "id": "heading_color",
+    "label": "Heading color",
+    "default": "#353b1e"
+  },
+  {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description color",
+      "default": "#353b1e"
+  },
+  {
+    "type": "range",
+    "id": "heading_size",
+    "label": "Heading size",
+    "unit": "px",
+    "min": 20,
+    "max": 40,
+    "step": 1,
+    "default": 36
+  },
+  {
+    "type": "range",
+    "id": "text_size",
+    "label": "Text size",
+    "unit": "px",
+    "min": 10,
+    "max": 30,
+    "step": 1,
+    "default": 20
+  },
+  {
+    "type": "header",
+    "content": "Settings section"
+  },
+  {
+    "type": "range",
+    "id": "margin_top",
+    "label": "Margin top",
+    "unit": "px",
+    "min": 0,
+    "max": 100,
+    "step": 5,
+    "default": 60
+  }
+  ]
+}
+{% endschema %}

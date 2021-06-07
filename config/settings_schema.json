@@ -431,6 +431,11 @@
         "default": "Sign up to our mailing list"
       },
       {
+        "type": "richtext",
+        "id": "popup--newsletter--description",
+        "label": "Description"
+      },
+      {
         "type": "checkbox",
         "id": "popup--social-icons--enabled",
         "label": "Show social icons",
@@ -454,6 +459,18 @@
         "step": 1,
         "default": 7,
         "info": "Independent to each browser and device"
+      },
+      {
+        "label": "Background",
+        "type": "color",
+        "id": "popup--background",
+        "default": "#eeeeee"
+      },
+      {
+        "label": "Text",
+        "type": "color",
+        "id": "popup--text",
+        "default": "#000"
       }
     ]
   },

@@ -11,6 +11,12 @@
       </div>
     {% endif %}
 
+    {% if settings.popup--newsletter--description != blank %}
+      <div class="popup--description">
+        {{ settings.popup--newsletter--description }}
+      </div>
+    {% endif %}
+
     {% form 'customer' %}
       <input type="hidden" name="contact[tags]" value="newsletter" />
       <input type="hidden" name="contact[first_name]" value="Newsletter" />
