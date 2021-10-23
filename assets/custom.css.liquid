@@ -536,3 +536,29 @@
   color: {{ settings.popup--text }};
   border-color: {{ settings.popup--text }};
 }
+
+.popup--root .contact-form svg path {
+  fill: {{ settings.popup--text }};
+}
+
+.popup--root .contact-form{
+  position: relative;
+}
+
+.popup--root .contact-form button {
+  border: none;
+  background: none;
+  color: white;
+  position: absolute;
+  right: -5px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  width: auto;
+  margin: 0;
+  pointer-events: all;
+}
+
+.popup--root .contact-form svg {
+  width: 20px;
+}
