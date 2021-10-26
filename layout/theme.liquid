@@ -120,7 +120,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     data-max="2000.00"
     async 
 ></script>
-
   </head>
 
   <body
@@ -138,6 +137,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         {{ 'general.skip_link' | t }}
       </a>
     {% endunless %}
+
+    <script>
+$(document).ready(function(){
+    $('img').bind("contextmenu",function(e){
+        return false;
+    });
+});
+    </script>
 
     <div
       class="off-canvas--viewport"
