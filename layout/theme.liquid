@@ -139,11 +139,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     {% endunless %}
 
     <script>
-$(document).ready(function(){
-    $('img').bind("contextmenu",function(e){
-        return false;
-    });
-});
+      $(document).ready(function () {
+        $('img').bind("contextmenu", function (e) {
+          return false;
+        });
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        if (window.location.href.indexOf("addresses") > -1) {
+          $(".tablinks--address").addClass("active");
+        } else {
+          $(".tablinks--account").addClass("active");
+        }
+      });
     </script>
 
     <div
