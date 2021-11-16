@@ -22,7 +22,7 @@
       {{ title_t }}
     </h1>
 
-    {% form 'customer_login' %}
+    {% form 'customer_login', return_to: routes.account_addresses_url %}
       {{ form.errors | default_errors }}
 
       <label for="customer_email" class="label" data-item="accent-text">
