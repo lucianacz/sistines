@@ -238,6 +238,66 @@
   margin-bottom: 50px;
 }
 
+/* SLIDER TITLE */
+
+.featured-content--text{
+  max-width: 100%;
+  width: 100%;
+  padding: 0px;
+}
+.featured-content--slider-title{
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  padding: 0px;
+}
+
+.featured-content--root .featured-content--container .featured-content--slider-text{
+  width: 100%;
+}
+
+.featured-content--slider-title .group-slider{
+  overflow: hidden;
+  width: max-content;
+  margin: 0;
+  display: -webkit-inline-box;
+  padding: 20px 0;
+
+  /* animation properties */
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.group-slider .featured-content--title{
+  padding-bottom: 0;
+}
+  
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(0); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(0); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(0);
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }  
+}
+
 /* HEADER */
 .header--root{
   z-index: 9;
@@ -290,6 +350,31 @@
   position: unset;
 }
 
+/* FEATURED PRODUCTS */
+.section--featured-collection .product-form--price-container,
+.product-collection .product-form--price-container{
+  display: none;
+}
+
+.section--featured-collection .product-form--button-container,
+.product-collection .product-form--button-container{
+  width: 50%;
+  padding-top: 0px;
+  margin: auto;
+  min-width: 140px;
+}
+
+.section--featured-collection  .product-form--button-container .product-form--add-to-cart,
+.product-collection .product-form--button-container .product-form--add-to-cart{
+  height: 30px;
+  font-size: 12px;
+}
+
+.product-collection .product-form--text,
+.section--featured-collection .product-form--text{
+  line-height: 1em;
+}
+
 /* FEATURED PRODUCTS WITH IMAGE */
 
 .product-collection .content-products{
@@ -321,7 +406,7 @@
 }
 
 .product-collection .product--details{
-  padding: 12px 1px 5px;
+  padding: 12px 1px;
 }
 
 
@@ -455,6 +540,18 @@
 
 .images-paragraph img{
   object-fit: contain;
+}
+
+.featured-content--slider-text{
+  position: absolute;
+}
+
+.featured-content--slider-text.featured-content--text--top{
+  top: 0px;
+}
+
+.featured-content--slider-text.featured-content--text--bottom{
+  bottom: 0px;
 }
 
 /* PARALLAX IMAGE */
