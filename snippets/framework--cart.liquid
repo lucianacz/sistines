@@ -327,6 +327,10 @@
           >{{ cart.note }}</textarea>
         </div>
       {% endif %}
+      
+      {% render 'donation' %}
+
+      
       <div class="cart--totals">
         {%- if cart.cart_level_discount_applications != blank -%}
           <div class="cart--sub-total">
@@ -338,6 +342,7 @@
             </div>
           </div>
 
+        
           <div class="cart--discounts">
             <ul>
             {%- for discount_application in cart.cart_level_discount_applications -%}
@@ -352,6 +357,7 @@
             </ul>
           </div>
         {%- endif -%}
+        
 
         <div class="cart--total">
           <div data-item="block-heading">{{ total_t }}</div>

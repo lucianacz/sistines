@@ -2,10 +2,343 @@
   "name": "Page Rewards",
   "sections": {
     "main": {
+<<<<<<< Updated upstream
       "type": "page-rewards"
     }
   },
   "order": [
     "main"
+=======
+      "type": "page-rewards",
+      "disabled": true,
+      "settings": {
+        "center-content--enabled": true
+      }
+    },
+    "1637121314188a16c3": {
+      "type": "framework--featured-content",
+      "settings": {
+        "full-width": true,
+        "background-color": "none",
+        "text-position": "bottom",
+        "text-width": "large",
+        "overlap": false,
+        "transparent-overlap": true,
+        "alternative-color": true,
+        "image": "shopify:\/\/shop_images\/river-running-through-a-mountain-valley-with-clouds-overhead.jpg",
+        "title": "REWARDS ARE IN ORDER.",
+        "font_size_title": 120,
+        "google_font": "Montserrat",
+        "weight_title": "900",
+        "color_desktop": "",
+        "color_mobile": "",
+        "description": "<p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p><p><\/p>",
+        "link-url": "",
+        "link-text": "",
+        "slider_title": true,
+        "seconds": 45
+      }
+    },
+    "1635011829a3b5f812": {
+      "type": "slideshow",
+      "disabled": true,
+      "blocks": {
+        "1635011829a3b5f812-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/rewards_2.png",
+            "slide-title": "",
+            "slide-tagline": "",
+            "slide-link-url": "",
+            "slide-link-title": "",
+            "slide-y-pos": "bottom",
+            "slide-x-pos": "left",
+            "slide-text-pos": "text-center"
+          }
+        }
+      },
+      "block_order": [
+        "1635011829a3b5f812-0"
+      ],
+      "settings": {
+        "autoplay": true,
+        "transition_style": "default",
+        "rotate-frequency-range": 7
+      }
+    },
+    "163501144867ba05b2": {
+      "type": "framework--featured-text",
+      "settings": {
+        "background-color": "light",
+        "heading": "Your all-around loyalty to yourself and our planet doesn't go unnoticed. As a purpose driven skincare-enthusiast—you deserve it all.",
+        "text": "<p><\/p><p>With more ways to unlock exciting perks, this is your all access pass to exclusive PRISTINE rewards.<\/p>"
+      }
+    },
+    "163503270838803c3e": {
+      "type": "framework--featured-grid",
+      "blocks": {
+        "163503270838803c3e-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1FTP-REWARDS.png",
+            "title": "Every purchase helps to support the co-existence of human and eco-care.",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "163503270838803c3e-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/clipart2247501.png",
+            "title": "You've been a major part of that through supporting sistine.",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "163503270838803c3e-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sistine_body_assets-GIFT.png",
+            "title": "So, reap your rewards! It's our way of thanking you for doing your part :)",
+            "link-url": "",
+            "link-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "163503270838803c3e-0",
+        "163503270838803c3e-1",
+        "163503270838803c3e-2"
+      ],
+      "settings": {
+        "background-color": "none",
+        "spacing": true,
+        "alternative-color": false,
+        "text-position": "bottom",
+        "container-width": 2,
+        "width": 3,
+        "mobile-width": "2",
+        "title": "",
+        "subtitle": "",
+        "link-url": "",
+        "link-text": ""
+      }
+    },
+    "1635011392e4e0f46f": {
+      "type": "framework--featured-collections",
+      "disabled": true,
+      "blocks": {
+        "1635011392e4e0f46f-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "clean-feels-good"
+          }
+        },
+        "1635011392e4e0f46f-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "masks"
+          }
+        },
+        "1635011392e4e0f46f-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "in-good-care"
+          }
+        }
+      },
+      "block_order": [
+        "1635011392e4e0f46f-0",
+        "1635011392e4e0f46f-1",
+        "1635011392e4e0f46f-2"
+      ],
+      "settings": {
+        "background-color": "none",
+        "width": 3,
+        "mobile-width": "2",
+        "heading": "Collection list"
+      }
+    },
+    "1635011410e20653e0": {
+      "type": "framework--featured-content",
+      "settings": {
+        "full-width": false,
+        "background-color": "light",
+        "text-position": "right",
+        "text-width": "large",
+        "overlap": false,
+        "transparent-overlap": false,
+        "alternative-color": false,
+        "image": "shopify:\/\/shop_images\/instories_DB82A9BD-66C1-458F-8BE9-3FD7CF0E8A72.png",
+        "title": "EARN $10 FOR EVERY 100 POINTS, WITH OUR PRISTINE REWARDS PROGRAM.",
+        "font_size_title": 20,
+        "google_font": "",
+        "weight_title": "400",
+        "color_desktop": "",
+        "color_mobile": "",
+        "description": "<p>Get rewarded for your eco-efforts.<\/p>",
+        "link-url": "https:\/\/sistinesistine.com\/account\/register",
+        "link-text": "SIGN UP NOW",
+        "slider_title": false,
+        "seconds": 90
+      }
+    },
+    "1637001993c5f3654c": {
+      "type": "framework--featured-grid",
+      "blocks": {
+        "1637001993c506fab9-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/clipart4814769.png",
+            "title": "Sign up and get 50 points",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1637001993c506fab9-3": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/kisspng-shopping-bags-trolleys-computer-icons-clip-art-women-bags-5b18d84c1e3368.2047039515283548921237.png",
+            "title": "Place an order and get 1 point for every $1 spent",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1637001993c506fab9-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/noun_5_stars_2158729.png",
+            "title": "Write a review and get 100 points",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "1637001993c506fab9-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/noun_take_photo_3524566.png",
+            "title": "Upload a photo and get 100 points",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "f0cf64c8-857b-473e-8027-19b62c0f9fa7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/SeekPng.com_birthday-cake-icon-png_3052206_4da6f389-f65b-4173-b1e9-3f57467fd05c.png",
+            "title": "Birthday rewards are 50 points",
+            "link-url": "",
+            "link-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "1637001993c506fab9-0",
+        "1637001993c506fab9-3",
+        "1637001993c506fab9-2",
+        "1637001993c506fab9-1",
+        "f0cf64c8-857b-473e-8027-19b62c0f9fa7"
+      ],
+      "settings": {
+        "background-color": "none",
+        "spacing": true,
+        "alternative-color": false,
+        "text-position": "bottom",
+        "container-width": 2,
+        "width": 5,
+        "mobile-width": "2",
+        "title": "WAYS TO EARN POINTS",
+        "subtitle": "Earn more Points for different actions, and turn those Points into awesome rewards!",
+        "link-url": "",
+        "link-text": ""
+      }
+    },
+    "1637014881eff0a6ed": {
+      "type": "framework--featured-grid",
+      "blocks": {
+        "163701488192fd2808-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/10_25ad6d6d-29ae-420e-9afc-fa53ae92bc78.png",
+            "title": "100 Points = $10 Pristine Reward",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "163701488192fd2808-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/20_1805fdf5-b54d-4160-b621-97e8be90d0df.png",
+            "title": "200 Points = $20 Pristine Reward",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "163701488192fd2808-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/30_4131b00c-fa27-497a-942c-f866bfca684f.png",
+            "title": "300 Points = $30 Pristine Reward",
+            "link-url": "",
+            "link-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "163701488192fd2808-0",
+        "163701488192fd2808-1",
+        "163701488192fd2808-2"
+      ],
+      "settings": {
+        "background-color": "light",
+        "spacing": true,
+        "alternative-color": false,
+        "text-position": "bottom",
+        "container-width": 1,
+        "width": 3,
+        "mobile-width": "2",
+        "title": "WAYS TO REDEEM YOUR POINTS",
+        "subtitle": "",
+        "link-url": "",
+        "link-text": ""
+      }
+    },
+    "1637012913158c5d9b": {
+      "type": "framework--featured-content",
+      "settings": {
+        "full-width": true,
+        "background-color": "none",
+        "text-position": "top",
+        "text-width": "large",
+        "overlap": true,
+        "transparent-overlap": false,
+        "alternative-color": false,
+        "image": "shopify:\/\/shop_images\/two-white-lambs-looking-to-camera-by-a-hedge-SBI-300909510.jpg",
+        "title": "—REFER YOUR FRIEND AND GET A $15 PRISTINE REWARD",
+        "font_size_title": 60,
+        "google_font": "Montserrat",
+        "weight_title": "900",
+        "color_desktop": "",
+        "color_mobile": "",
+        "description": "<p>Give your friends a reward and claim your own when they make a purchase. They'll get $15, and you'll get $15 too :)<\/p><p><\/p><p><\/p>",
+        "link-url": "#smile-home",
+        "link-text": "",
+        "slider_title": true,
+        "seconds": 90
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1637121314188a16c3",
+    "1635011829a3b5f812",
+    "163501144867ba05b2",
+    "163503270838803c3e",
+    "1635011392e4e0f46f",
+    "1635011410e20653e0",
+    "1637001993c5f3654c",
+    "1637014881eff0a6ed",
+    "1637012913158c5d9b"
+>>>>>>> Stashed changes
   ]
 }

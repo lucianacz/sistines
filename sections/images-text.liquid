@@ -1,0 +1,240 @@
+<div class="page-width images-with-text images-with-text--{{ section.id }} limit-width product-page--root">
+    <div class="featured-text--root" data-section-id="{{ section.id }}" data-container="section">
+        <div class="featured-text--blocks" data-container="panel">
+            <div class="featured-text--block" data-container="block">
+                {% if section.settings.heading != blank %}
+                <h2 class="featured-text--heading" data-item="section-heading"
+                    style="color: {{ section.settings.heading_color }}; font-size: {{ section.settings.heading_size }}px;">
+                    {{ section.settings.heading }}</h2>
+                {% endif %}
+                <div class="featured-text--body" data-item="rte-content"
+                    style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.text_size }}px;">
+                    {{ section.settings.text }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+    <div class="image-container-all">
+        {% for block in section.blocks %}
+
+        {% if block.settings.link != blank %}
+        <a href="{{ block.settings.link }}" class="image-container image-container--{{ section.settings.qty_row }}">
+            {% else %}
+            <div class="image-container image-container--{{ section.settings.qty_row }}">
+                {% endif %}
+
+                {% if block.settings.svg != blank %}
+                <img src="{{ block.settings.svg }}" alt="{{ block.settings.title }}"
+                    style="max-width: {{ block.settings.image_width }}px;">
+                {% elsif block.settings.image != blank %}
+                <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.title }}"
+                    {% unless block.settings.disable_max %} style="max-width: {{ block.settings.image_width }}px;"
+                    {% endunless %}>
+                {% endif %}
+
+                {% if block.settings.title != blank or block.settings.content != blank %}
+                <div class="image-container-text">
+                    {% if block.settings.title != blank %}
+                    <h2 style="color: {{ section.settings.color_title }}">{{ block.settings.title }}</h2>
+                    {% endif %}
+
+                    {% if block.settings.content != blank %}
+                    <div class="image-container-content">{{ block.settings.content }}</div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                {% if block.settings.link != blank %}
+        </a>
+        {% else %}
+    </div>
+    {% endif %}
+
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+    {% style %}
+    .images-with-text--{{ section.id }} .image-container-content p,
+    .images-with-text--{{ section.id }} .image-container-content a{
+      color: {{ section.settings.color_description }}
+    }
+    
+    @media (min-width: 1024px){
+      .images-with-text--{{ section.id }} .image-container img{
+        aspect-ratio: {{ section.settings.aspect_ratio }};
+      }
+    }
+    {% endstyle %}
+      
+    {% schema %}
+    {
+      "name": "Images with text",
+      "class": "index-section",
+      "settings": [
+        {
+            "type": "header",
+            "content": "Content"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Talk about your brand"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "range",
+          "id": "qty_row",
+          "label": "Images per row",
+          "info": "Only applies for desktop",
+          "unit": "qty",
+          "min": 2,
+          "max": 4,
+          "step": 1,
+          "default": 2
+        },
+        {
+            "type": "select",
+            "id": "aspect_ratio",
+            "label": "Aspect ratio",
+            "options": [
+                {
+                    "value": "inherit",
+                    "label": "Inherit"
+                },
+                {
+                  "value": "1/1",
+                  "label": "Square"
+                },
+                {
+                  "value": "2/3",
+                  "label": "2:3"
+                },
+                {
+                  "value": "3/4",
+                  "label": "3:4"
+                }
+            ]
+        },
+        {
+          "type": "header",
+          "content": "General section"
+        },
+        {
+            "type": "color",
+            "id": "heading_color",
+            "label": "Heading color",
+            "default": "#353b1e"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "#353b1e",
+            "default": "#353b1e"
+        },
+        {
+            "type": "range",
+            "id": "heading_size",
+            "label": "Heading size",
+            "unit": "px",
+            "min": 20,
+            "max": 40,
+            "step": 1,
+            "default": 25
+        },
+        {
+            "type": "range",
+            "id": "text_size",
+            "label": "Text size",
+            "unit": "px",
+            "min": 10,
+            "max": 30,
+            "step": 1,
+            "default": 16
+        },
+        {
+          "type": "header",
+          "content": "Color blocks"
+        },
+        {
+            "type": "color",
+            "id": "color_title",
+            "label": "Title"
+        },
+        {
+            "type": "color",
+            "id": "color_description",
+            "label": "Description"
+        }
+      ],
+      "blocks": [
+      {
+        "type": "image",
+        "name": "Image with text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "svg",
+            "label": "SVG",
+            "info": "Upload from Settings - Files"
+          },
+          {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+          },
+          {
+            "type": "range",
+            "id": "image_width",
+            "label": "Image / SVG max-width",
+            "unit": "px",
+            "min": 0,
+            "max": 300,
+            "step": 10,
+            "default": 100
+          },
+          {
+            "type": "checkbox",
+            "id": "disable_max",
+            "label": "Disable Max-Width for image",
+            "default": true
+          },
+          {
+              "type": "text",
+              "id": "title",
+              "label": "Title"
+          },
+          {
+              "type": "richtext",
+              "id": "content",
+              "label": "Content"
+          },
+          {
+            "type": "url",
+            "id": "link",
+            "label": "Link"
+          }
+        ]
+      }
+    ],
+      "presets": [
+        {
+          "name": "Images with text",
+          "category": "Image"
+        }
+      ]
+    }
+    {% endschema %}
+      
