@@ -4,6 +4,9 @@
   {{ settings.color--accent }}
 {% endcapture %}
 
+<link href="https://fonts.googleapis.com/css2?family={{ section.settings.google_font }}:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+
 {% assign header_text_exists = true %}
 {% if section.settings.title == blank and section.settings.subtitle == blank %}
   {% assign header_text_exists = false %}
@@ -27,7 +30,7 @@
 
 {% comment %} View {% endcomment %}
 <div
-  class="featured-content--root"
+  class="featured-content--root featured-content--root--{{ section.id }}"
   style="{% render 'framework--background-colors', bg_color: section.settings.background-color %}"
   data-section-id="{{ section.id }}"
   data-full-width="{{ section.settings.full-width }}"
@@ -63,13 +66,27 @@
       section.settings.description != blank or
       section.settings.link-text != blank
     %}
-      <div class="featured-content--text">
-        <div class="featured-content--text-container">
+      <div class="featured-content--text featured-content--text--{{ section.settings.text-position }} {% if section.settings.slider_title %}featured-content--slider-text{% endif %}">
+        <div class="featured-content--text-container {% if section.settings.slider_title %}featured-content--slider-title{% endif %}">
+          {% if section.settings.slider_title and section.settings.title != blank %}<div class="group-slider">{% endif %}
           {% if section.settings.title != blank %}
             <h2 class="featured-content--title" data-item="section-heading">
-              {{ section.settings.title | escape }}
+              {{ section.settings.title }}
             </h2>
           {% endif %}
+
+          {% if section.settings.slider_title and section.settings.title != blank %}
+              <h2 class="featured-content--title" data-item="section-heading">
+                {{ section.settings.title }}
+              </h2>
+            {% endif %}
+
+            {% if section.settings.slider_title and section.settings.title != blank %}
+            <h2 class="featured-content--title" data-item="section-heading">
+              {{ section.settings.title }}
+            </h2>
+          {% endif %}
+          {% if section.settings.slider_title and section.settings.title != blank %}</div>{% endif %}
 
           {% if section.settings.description != blank %}
             <div class="featured-content--description" data-item="rte-content">
@@ -92,6 +109,35 @@
   {% if cover_link %}</a>{% endif %}
 
 </div>
+
+
+{% style %}
+
+.featured-content--root--{{ section.id }} .featured-content--title{
+  font-family: '{{ section.settings.google_font }}';
+  font-weight: {{ section.settings.weight_title }};
+}
+
+@media (max-width: 768px){
+  .featured-content--root--{{ section.id }} .featured-content--title{
+    color: {{ section.settings.color_mobile }};
+    font-size: calc({{ section.settings.font_size_title }}px / 4);
+  }
+}
+
+@media (min-width: 767px){
+  .featured-content--root--{{ section.id }} .featured-content--title{
+    color: {{ section.settings.color_desktop }};
+    font-size: {{ section.settings.font_size_title }}px;
+  }
+}
+
+.featured-content--root--{{ section.id }} .featured-content--slider-title .group-slider{
+  -moz-animation: my-animation {{ section.settings.seconds }}s linear infinite;
+  -webkit-animation: my-animation {{ section.settings.seconds }}s linear infinite;
+  animation: my-animation {{ section.settings.seconds }}s linear infinite;
+}
+{% endstyle %}
 
 {% schema %}
 {
@@ -179,6 +225,55 @@
       "default": "Image with text"
     },
     {
+      "type": "range",
+      "id": "font_size_title",
+      "label": "Font size",
+      "unit": "px",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "default": 20
+    },
+    {
+      "type": "text",
+      "id": "google_font",
+      "label": "Google Font"
+    },
+    {
+      "type": "select",
+      "id": "weight_title",
+      "label": "Weight",
+      "default": "400",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "bold",
+          "label": "Bold"
+        },
+        {
+          "value": "900",
+          "label": "Black"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "color_desktop",
+      "label": "Color [ Desktop ]"
+    },
+    {
+      "type": "color",
+      "id": "color_mobile",
+      "label": "Color [ Mobile ]"
+    },
+    {
       "type": "richtext",
       "id": "description",
       "label": "Text",
@@ -193,6 +288,26 @@
       "type": "text",
       "id": "link-text",
       "label": "Link text"
+    },
+    {
+      "type": "header",
+      "content": "Scroll title"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_title",
+      "label": "Scroll title",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "seconds",
+      "label": "Scroll title time",
+      "unit": "sec",
+      "min": 30,
+      "max": 120,
+      "step": 5,
+      "default": 90
     }
   ],
   "presets": [

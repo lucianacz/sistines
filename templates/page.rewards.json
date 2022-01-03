@@ -1,14 +1,6 @@
 {
-  "name": "Page Rewards",
   "sections": {
     "main": {
-<<<<<<< Updated upstream
-      "type": "page-rewards"
-    }
-  },
-  "order": [
-    "main"
-=======
       "type": "page-rewards",
       "disabled": true,
       "settings": {
@@ -339,6 +331,5 @@
     "1637001993c5f3654c",
     "1637014881eff0a6ed",
     "1637012913158c5d9b"
->>>>>>> Stashed changes
   ]
 }
