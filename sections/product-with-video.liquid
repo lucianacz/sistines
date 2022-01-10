@@ -85,19 +85,16 @@
   >
     <div class="product-page--main-content">
 
-      <div class="product-page--title-n-vendor">
-        <h1 class="product-page--title" itemprop="name" data-item="section-heading">
-          {{ product.title }}
-        </h1>
-<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
-        {% if show_vendor %}
-          <div class="product-page--vendor" itemprop="brand">
-            <a data-item="light-accent-text" href="{{ product.vendor | url_for_vendor }}">
-              {{ product.vendor }}
-            </a>
-          </div>
+    <div class="product-page--info">
+
+        {% if product.metafields.sistine.video != blank %}
+            <div class="product-page--video">
+                <video autoplay muted loop>
+                    <source src="{{ product.metafields.sistine.video }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video>
+            </div>
         {% endif %}
-      </div>
 
       <div class="product-page--cart-form">
         {%
@@ -115,93 +112,43 @@
           variant_style: variant_style
         %}
 
-        {% if product.media.size > 1 %}
-          <div class="product-page--thumbs" data-position="cart-form-column">
-            {%
-              render "framework--product--media",
-              view: "thumbs",
-              product: product
-            %}
-          </div>
-        {% endif %}
-      </div>
-
-      <div class="product-page--description">
-        <div data-item="rte-content" itemprop="description">
-          {{ product.description}}
+        <div class="product-page--description">
+            {% if product.metafields.sistine.weight_size != blank %}
+                <div class="weight"><strong>{{ product.metafields.sistine.weight_size | upcase }}</strong></div>
+            {% endif %}
+            <div data-item="rte-content" itemprop="description">
+              {{ product.description }}
+            </div>
         </div>
       </div>
+    </div>
 
       {% if product.media.size > 0 %}
         <div class="product-page--media">
-          <div class="product-media--wrapper" data-zoom-enabled="{{ image_zoom_enabled }}">
-            <div class="modal--root" data-js-class="FrameworkModal">
-              {% for media in product.media %}
-
-                {% if modal_enabled and media.media_type == 'image' %}
-                  <div class="modal--link">
-                {% endif %}
-
-                {%
-                  render "framework--product--media",
-                  view: "featured",
-                  image_zoom_enabled: image_zoom_enabled,
-                  product_media: media,
-                  video_looping_enabled: video_looping_enabled
-                %}
-
-                {% if modal_enabled and media.media_type == 'image' %}
-                  </div>
-                {% endif %}
-              {% endfor %}
-
-              {% if modal_enabled %}
-                <div class="product-page--modal-media">
-                  {% for media in product.media %}
-                    {% if media.media_type == 'image' %}
-                      <div class="modal--content">
-                        {% render "framework--image", image: media.preview_image %}
-                      </div>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-              {% endif %}
-
+        {% for media in product.media %}
+            <div class="image--media">
+                <img src="{{ media | img_url: 'master'}}" alt="">
             </div>
-          </div>
-
-          {%
-            render "framework--product--media",
-            view: "media-dependencies",
-            product: product
-          %}
-
-          {% if product.media.size > 1 %}
-            <div class="product-page--thumbs" data-position="image-column">
-              {%
-                render "framework--product--media",
-                view: "thumbs",
-                product: product
-              %}
-            </div>
-          {% endif %}
+        {% endfor %}
         </div>
       {% endif %}
-
     </div>
   </article>
 
 </div>
 
-{% if product_share_enabled %}
-  {%
-    render 'snippet-product-share',
-    product: product,
-    share_twitter: twitter_share_enabled,
-    share_facebook: facebook_share_enabled,
-    share_pinterest: pinterest_share_enabled
-  %}
-{% endif %}
+<script>
+    $('.product-page--media').slick({
+        arrows: true,
+        prevArrow: '<button type="button" class="slick-prev slick-custom"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="9" viewBox="0 0 28 9"><g id="Group_4" data-name="Group 4" transform="translate(-636.5 -425.5)"> <line id="Line_1" data-name="Line 1" x2="23" transform="translate(636.5 430.5)" fill="none" stroke="#000" stroke-width="1"/><path id="Polygon_1" data-name="Polygon 1" d="M4.5,0,9,8H0Z" transform="translate(664.5 425.5) rotate(90)"/></g></svg></button>',
+	    nextArrow: '<button type="button" class="slick-next slick-custom"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="9" viewBox="0 0 28 9"><g id="Group_4" data-name="Group 4" transform="translate(-636.5 -425.5)"> <line id="Line_1" data-name="Line 1" x2="23" transform="translate(636.5 430.5)" fill="none" stroke="#000" stroke-width="1"/><path id="Polygon_1" data-name="Polygon 1" d="M4.5,0,9,8H0Z" transform="translate(664.5 425.5) rotate(90)"/></g></svg></button>',
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+</script>
+
 
 {% schema %}
 {

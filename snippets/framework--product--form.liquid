@@ -47,6 +47,16 @@
     {% form 'product', product, class: 'product-form--container' %}
       <div class="product-form--price-container">
 
+        <div class="product-page--title-n-vendor">
+          <h1 class="product-page--title" itemprop="name" data-item="section-heading">
+            {{ product.title }}
+          </h1>
+  
+          {% if product.metafields.sistine.subtitle != blank %}
+          <p class="subtitle">{{ product.metafields.sistine.subtitle }}</p>
+          {% endif %}
+        </div>
+        
         <div
           class="product-form--price-wrapper"
           itemprop="offers"
@@ -62,6 +72,9 @@
               {{ current_variant.compare_at_price | money }}
             {% endif %}
           </div>
+
+          <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+
         </div>
 
         <div class="product-form--unit-price-container" data-item="light-accent-text">

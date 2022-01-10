@@ -1,0 +1,86 @@
+{% comment %} Variables {% endcomment %}
+{% assign heading = section.settings.heading %}
+
+{% comment %} View {% endcomment %}
+{% if heading != blank %}
+<div
+  class="featured-text--root page-width limit-width"
+  data-section-id="{{ section.id }}"
+>
+  <div
+    class="featured-title--blocks featured-title--root"
+    style="background: {{ section.settings.background }};"
+    data-container="panel"
+  >
+    <div class="featured-title--block" data-container="block">
+        <h2 class="featured-text--heading" data-item="section-heading"
+        style="color: {{ section.settings.heading_color }};">{{ heading }}</h2>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  
+{% style %}
+@media (min-width: 1024px){
+  .featured-text--heading{
+    font-size: {{ section.settings.heading_size }}px;
+  }
+}
+
+@media (max-width: 1023px){
+  .featured-text--heading{
+    font-size: {{ section.settings.heading_size_mobile }}px;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Title",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "heading",
+        "label": "Heading"
+      },
+      {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#353b1e"
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#6b6b6b"
+      },
+      {
+        "type": "range",
+        "id": "heading_size",
+        "label": "Size [ Destkop ]",
+        "unit": "px",
+        "min": 20,
+        "max": 40,
+        "step": 1,
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "heading_size_mobile",
+        "label": "Size [ Mobile ]",
+        "unit": "px",
+        "min": 20,
+        "max": 40,
+        "step": 1,
+        "default": 30
+      }
+    ],
+      "presets": [
+      {
+        "name": "Title",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,109 @@
+{% if section.blocks.size > 0 %}
+<div class="slider-images" id="slider-images--{{ section.id }}"
+style="background: {{ section.settings.background }}"
+>
+  <div class="images-content">
+      {%- for block in section.blocks -%}
+        {% if block.type == 'image' and block.settings.image != blank %}
+        <div class="image-slider-content">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+            {% if block.settings.text != blank %}            
+              <div class="image-slider--text" style="color: {{ block.settings.color }}">
+                {{ block.settings.text }}
+              </div>
+            {% endif %}
+        </div>  
+        {% endif %}
+        {% if block.type == 'video' and block.settings.video != blank  %}
+          <div class="image-slider-content">
+            <video autoplay muted loop>
+                <source src="{{ block.settings.video }}" type="video/mp4">
+              Your browser does not support the video tag.
+              </video>
+          </div>
+        {% endif %}
+      {%- endfor -%}
+    </div>
+</div>
+{% endif %}
+
+<script> 
+$('#slider-images--{{ section.id }} .images-content').slick({
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    pauseOnHover: false,
+    arrows: false,
+    slidesToShow: 3.7,
+    slidesToScroll: 1,
+    centerMode: true,
+    draggable: false,
+    responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1.9
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Slider images",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Slider images"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Color text",
+          "default": "#fff"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "url",
+          "id": "video",
+          "label": "Video"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

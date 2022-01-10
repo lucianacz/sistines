@@ -1,16 +1,150 @@
 {
   "sections": {
-      "main": {
+    "main": {
       "type": "product",
-      "settings": {}
-      },
-      "reviews": {
-      "type": "reviews",
-      "settings": {}
+      "settings": {
+        "product-breadcrumbs-show": true,
+        "variant-style": "dropdowns",
+        "swatches-enabled": false,
+        "smart-payment-button": true,
+        "product-unavailable-form-show": false,
+        "low-in-stock-amount": 0,
+        "product-pickup-enabled": true,
+        "price-size": 25,
+        "modal-enabled": true,
+        "image-zoom-enabled": true,
+        "loop-enabled": false,
+        "cart-form-position": "left",
+        "product-size-chart-enabled": false,
+        "product-size-chart-option": "size",
+        "product-size-chart-page-content": "",
+        "product-share-show": false,
+        "product-share-twitter": true,
+        "product-share-facebook": true,
+        "product-share-pinterest": true
       }
+    },
+    "product-video": {
+      "type": "product-with-video",
+      "settings": {
+      }
+    },
+    "16412634905ec04333": {
+      "type": "slider-words",
+      "settings": {
+        "background": "#000000",
+        "text": "#ffffff",
+        "slider_words": "<p>{{ product.metafields.sistine.slider_words | metafield_tag }}<\/p>"
+      }
+    },
+    "description": {
+      "type": "product-description",
+      "settings": {
+        "image_default": "shopify:\/\/shop_images\/THE_WAIT_IS_OVER.jpg"
+      }
+    },
+    "1641234602aa24da2f": {
+      "type": "images-text",
+      "blocks": {
+        "0e1b76df-f5ef-4666-ba52-af030bfb8f72": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image": "shopify:\/\/shop_images\/ALL_SKIN-2.png",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "",
+            "link": ""
+          }
+        },
+        "79cd4678-07ae-48b6-a660-ae561641c250": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "",
+            "link": ""
+          }
+        },
+        "4e9b8f2d-b6c8-4fde-8d2d-cb80d5aad48c": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "",
+            "link": ""
+          }
+        },
+        "1235c609-9573-4969-9bb4-55dd9b54e6eb": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "0e1b76df-f5ef-4666-ba52-af030bfb8f72",
+        "79cd4678-07ae-48b6-a660-ae561641c250",
+        "4e9b8f2d-b6c8-4fde-8d2d-cb80d5aad48c",
+        "1235c609-9573-4969-9bb4-55dd9b54e6eb"
+      ],
+      "settings": {
+        "heading": "",
+        "text": "",
+        "qty_row": 4,
+        "aspect_ratio": "1\/1",
+        "heading_color": "#353b1e",
+        "text_color": "#353b1e",
+        "heading_size": 25,
+        "text_size": 16,
+        "color_title": "",
+        "color_description": ""
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+      }
+    },
+    "1641241853c383d5cd": {
+      "type": "framework--title",
+      "settings": {
+        "heading": "<p>{{ product.metafields.sistine.featured_phrase | metafield_tag }}<\/p>",
+        "heading_color": "#ffffff",
+        "background": "#6b6b6b",
+        "heading_size": 36,
+        "heading_size_mobile": 30
+      }
+    },
+    "recommendations": {
+      "type": "framework--product-recommendations",
+      "settings": {
+        "product-similar-products-show": true,
+        "product-similar-products-heading": "You may also like"
+      }
+    }
   },
   "order": [
-      "main",
-      "reviews"
+    "main",
+    "product-video",
+    "16412634905ec04333",
+    "description",
+    "1641234602aa24da2f",
+    "reviews",
+    "1641241853c383d5cd",
+    "recommendations"
   ]
 }

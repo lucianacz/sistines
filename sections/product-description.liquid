@@ -1,0 +1,47 @@
+<section class="page-width limit-width">
+  <div class="product-description">
+    <div class="product-description-tabs">
+      {% if section.settings.title != blank %}  
+      <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="product-description--info">{{ section.settings.description }}</div>
+      {% endif %}
+      {% render 'product-description-slider', product: product %}
+    </div>
+    <div class="product-description-image">
+      {% if product.metafields.sistine.image_description != blank %}
+      <img src="{{ product.metafields.sistine.image_description | img_url: 'master'}}" alt="{{ product.title }}">
+      {% elsif section.settings.image_default != blank %}
+      <img src="{{ section.settings.image_default | img_url: 'master'}}" alt="{{ product.title }}">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Product description",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+        "type": "image_picker",
+        "id": "image_default",
+        "label": "Image default"
+    }
+  ]
+}
+{% endschema %}
+
+

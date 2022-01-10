@@ -1,0 +1,83 @@
+{% if section.settings.slider_words != blank %}
+<div class="slider-words" id="slider-words--{{ section.id }}"
+style="background: {{ section.settings.background }}"
+>
+  <div class="slider-words-content">
+      {% assign words = section.settings.slider_words | split: ',' %}
+      {%- for word in words -%}
+        <div class="slider-word text-center" 
+        style="color: {{ section.settings.text }}">
+        {{ word }}
+        </div>
+        {%- endfor -%}
+    </div>
+</div>
+{% endif %}
+
+<script> 
+$("#slider-words--{{ section.id }} .slider-words-content").slick({
+    infinite: true,
+    pauseOnHover: false,
+    autoplaySpeed: 1500,
+    autoplay: true,
+    arrows: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [{
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Slider words",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#F9C94C"
+    },
+    {
+      "type": "color",
+      "id": "text",
+      "label": "Text",
+      "default": "#000"
+    },
+    {
+        "type": "richtext",
+        "id": "slider_words",
+        "label": "Slider (separate the words with a comma ','). It could be related with Custom fields, possible to change from the Shopify Products admin"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider words"
+    }
+  ]
+}
+{% endschema %}
