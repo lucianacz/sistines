@@ -6,7 +6,7 @@ style="background: {{ section.settings.background }}"
       {% assign words = section.settings.slider_words | split: ',' %}
       {%- for word in words -%}
         <div class="slider-word text-center" 
-        style="color: {{ section.settings.text }}">
+        style="color: {{ section.settings.text }}; font-size: {{ section.settings.font_size }}px">
         {{ word }}
         </div>
         {%- endfor -%}
@@ -69,9 +69,20 @@ $("#slider-words--{{ section.id }} .slider-words-content").slick({
       "default": "#000"
     },
     {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size",
+      "unit": "px",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
         "type": "richtext",
         "id": "slider_words",
-        "label": "Slider (separate the words with a comma ','). It could be related with Custom fields, possible to change from the Shopify Products admin"
+        "label": "Slider (separate the words with a comma ',')",
+        "info": "Also, it could be related with Custom fields, possible to change from the Shopify Products admin"        
     }
   ],
   "presets": [

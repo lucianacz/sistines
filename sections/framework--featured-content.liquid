@@ -6,6 +6,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family={{ section.settings.google_font }}:wght@300;400;700;900&display=swap" rel="stylesheet">
 
+{% assign show_section = true %}
+{% if section.settings.show_section == false and section.settings.image == blank%}
+{% assign show_section = false %}
+{% endif %}
 
 {% assign header_text_exists = true %}
 {% if section.settings.title == blank and section.settings.subtitle == blank %}
@@ -28,6 +32,19 @@
   {% assign cover_link = true %}
 {% endif %}
 
+{% if show_section %}
+{% comment %} View {% endcomment %}
+{% if section.settings.heading != blank %}
+<div
+class="featured-text--root"
+data-container="section"
+>
+  <div class="featured-text--block" data-container="block">
+      <h2 class="featured-text--heading text-center" data-item="section-heading">{{ section.settings.heading | escape }}</h2>
+    </div>
+  </div>
+{% endif %}
+
 {% comment %} View {% endcomment %}
 <div
   class="featured-content--root featured-content--root--{{ section.id }}"
@@ -41,25 +58,18 @@
   data-text-position="{{ section.settings.text-position }}"
   data-alternative-color="{{ section.settings.alternative-color }}"
   data-text-width="{{ section.settings.text-width }}"
->
+> 
   {% if cover_link %}<a href="{{ section.settings.link-url }}">{% endif %}
   <div class="featured-content--container">
+    {% if section.settings.image != blank%}
     <div class="featured-content--image">
-      {% if section.settings.image %}
         {%
           render "framework--image",
           image: section.settings.image,
           full_width: true
         %}
-      {% else %}
-        {%
-          render "framework--placeholder",
-          type: "lifestyle",
-          aspect_ratio: 1.45,
-          placeholder_index: 2
-        %}
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
 
     {% if
       section.settings.title != blank or
@@ -109,6 +119,7 @@
   {% if cover_link %}</a>{% endif %}
 
 </div>
+{% endif %}
 
 
 {% style %}
@@ -144,6 +155,21 @@
   "name": "Image with Text",
   "class": "limit-width",
   "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading section"
+    },
+   {
+     "type": "checkbox",
+     "id": "show_section",
+     "label": "Show section when title is empty",
+     "default": true
+   },
     {
       "type": "header",
       "content": "Layout and Color"

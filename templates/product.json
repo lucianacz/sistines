@@ -1,18 +1,18 @@
 {
   "sections": {
-    "main": {
-      "type": "product",
+    "product-video": {
+      "type": "product-with-video",
       "settings": {
-        "product-breadcrumbs-show": true,
+        "product-breadcrumbs-show": false,
         "variant-style": "dropdowns",
         "swatches-enabled": false,
-        "smart-payment-button": true,
-        "product-unavailable-form-show": false,
+        "smart-payment-button": false,
+        "product-unavailable-form-show": true,
         "low-in-stock-amount": 0,
-        "product-pickup-enabled": true,
+        "product-pickup-enabled": false,
         "price-size": 25,
-        "modal-enabled": true,
-        "image-zoom-enabled": true,
+        "modal-enabled": false,
+        "image-zoom-enabled": false,
         "loop-enabled": false,
         "cart-form-position": "left",
         "product-size-chart-enabled": false,
@@ -24,98 +24,79 @@
         "product-share-pinterest": true
       }
     },
-    "product-video": {
-      "type": "product-with-video",
-      "settings": {
-      }
-    },
     "16412634905ec04333": {
       "type": "slider-words",
       "settings": {
         "background": "#000000",
         "text": "#ffffff",
+        "font_size": 20,
         "slider_words": "<p>{{ product.metafields.sistine.slider_words | metafield_tag }}<\/p>"
       }
     },
     "description": {
       "type": "product-description",
       "settings": {
-        "image_default": "shopify:\/\/shop_images\/THE_WAIT_IS_OVER.jpg"
+        "title": "",
+        "description": "",
+        "image_default": "shopify:\/\/shop_images\/sisters_jar_on_mantle.jpg"
       }
     },
-    "1641234602aa24da2f": {
-      "type": "images-text",
+    "1641433316674ad0af": {
+      "type": "slider-images",
       "blocks": {
-        "0e1b76df-f5ef-4666-ba52-af030bfb8f72": {
+        "ac50ee39-13ca-420b-8c35-85973c27d60b": {
           "type": "image",
           "settings": {
-            "svg": "",
-            "image": "shopify:\/\/shop_images\/ALL_SKIN-2.png",
-            "image_width": 100,
-            "disable_max": true,
-            "title": "",
-            "content": "",
-            "link": ""
+            "image": "{{ product.metafields.sistine.image_slider_1.value }}",
+            "text": "",
+            "color": "#ffffff"
           }
         },
-        "79cd4678-07ae-48b6-a660-ae561641c250": {
+        "9723e01c-ba3d-4376-9b57-d67299731c18": {
           "type": "image",
           "settings": {
-            "svg": "",
-            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
-            "image_width": 100,
-            "disable_max": true,
-            "title": "",
-            "content": "",
-            "link": ""
+            "image": "{{ product.metafields.sistine.image_slider_2.value }}",
+            "text": "{{ product.metafields.sistine.text_image_slider_2.value }}",
+            "color": "#ffffff"
           }
         },
-        "4e9b8f2d-b6c8-4fde-8d2d-cb80d5aad48c": {
-          "type": "image",
+        "f1b79c12-2c08-482b-a053-b53c8cf2bd70": {
+          "type": "video",
           "settings": {
-            "svg": "",
-            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
-            "image_width": 100,
-            "disable_max": true,
-            "title": "",
-            "content": "",
-            "link": ""
+            "video": "{{ product.metafields.sistine.video_slider.value }}"
           }
         },
-        "1235c609-9573-4969-9bb4-55dd9b54e6eb": {
+        "29b7de06-4f0d-43bc-814c-0c2bba749939": {
           "type": "image",
           "settings": {
-            "svg": "",
-            "image": "shopify:\/\/shop_images\/anointed_assets-wide.png",
-            "image_width": 100,
-            "disable_max": true,
-            "title": "",
-            "content": "",
-            "link": ""
+            "image": "{{ product.metafields.sistine.image_slider_3.value }}",
+            "text": "{{ product.metafields.sistine.text_image_slider_3.value }}",
+            "color": "#ffffff"
+          }
+        },
+        "0e6be3fc-8ddb-479b-937a-074faabcf925": {
+          "type": "image",
+          "settings": {
+            "image": "{{ product.metafields.sistine.image_slider_4.value }}",
+            "text": "{{ product.metafields.sistine.text_image_slider_4.value }}",
+            "color": "#ffffff"
+          }
+        },
+        "359725d8-3b44-4a84-907a-28fa25069770": {
+          "type": "video",
+          "settings": {
+            "video": "{{ product.metafields.sistine.video_slider.value }}"
           }
         }
       },
       "block_order": [
-        "0e1b76df-f5ef-4666-ba52-af030bfb8f72",
-        "79cd4678-07ae-48b6-a660-ae561641c250",
-        "4e9b8f2d-b6c8-4fde-8d2d-cb80d5aad48c",
-        "1235c609-9573-4969-9bb4-55dd9b54e6eb"
+        "ac50ee39-13ca-420b-8c35-85973c27d60b",
+        "9723e01c-ba3d-4376-9b57-d67299731c18",
+        "f1b79c12-2c08-482b-a053-b53c8cf2bd70",
+        "29b7de06-4f0d-43bc-814c-0c2bba749939",
+        "0e6be3fc-8ddb-479b-937a-074faabcf925",
+        "359725d8-3b44-4a84-907a-28fa25069770"
       ],
-      "settings": {
-        "heading": "",
-        "text": "",
-        "qty_row": 4,
-        "aspect_ratio": "1\/1",
-        "heading_color": "#353b1e",
-        "text_color": "#353b1e",
-        "heading_size": 25,
-        "text_size": 16,
-        "color_title": "",
-        "color_description": ""
-      }
-    },
-    "reviews": {
-      "type": "reviews",
       "settings": {
       }
     },
@@ -123,28 +104,177 @@
       "type": "framework--title",
       "settings": {
         "heading": "<p>{{ product.metafields.sistine.featured_phrase | metafield_tag }}<\/p>",
-        "heading_color": "#ffffff",
-        "background": "#6b6b6b",
-        "heading_size": 36,
-        "heading_size_mobile": 30
+        "heading_color": "#000000",
+        "background": "#ffffff",
+        "heading_size": 25,
+        "heading_size_mobile": 25
+      }
+    },
+    "164160021127c9f478": {
+      "type": "framework--featured-content",
+      "settings": {
+        "heading": "WHAT EXACTLY MAKES IT GOOD—",
+        "show_section": false,
+        "full-width": true,
+        "background-color": "dark",
+        "text-position": "top",
+        "text-width": "small",
+        "overlap": false,
+        "transparent-overlap": false,
+        "alternative-color": false,
+        "image": "{{ product.metafields.my_fields.ingredients_image.value }}",
+        "title": "",
+        "font_size_title": 20,
+        "google_font": "",
+        "weight_title": "400",
+        "color_desktop": "",
+        "color_mobile": "",
+        "description": "",
+        "link-url": "",
+        "link-text": "",
+        "slider_title": false,
+        "seconds": 90
+      }
+    },
+    "1641844647c2aecf59": {
+      "type": "images-text",
+      "blocks": {
+        "a68f8b0d-6000-47f7-86dd-33da853a01dd": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_1 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "db2cd4cb-355c-4419-a8af-2000a149f457": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 140,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_2 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "49d056a6-d054-473f-8a5c-590b5120f475": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_3 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "c6f2e138-37b7-4bfc-8551-38b60ca535cc": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_4 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "06957169-67f2-4e66-b460-f44b9eb24344": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_5 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "4a0cc2d8-abe8-44b1-8813-3fca525a6d4d": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_6 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        },
+        "c17a667d-9dd2-4c7b-a590-c8ea779a79f7": {
+          "type": "image",
+          "settings": {
+            "svg": "",
+            "image_width": 100,
+            "disable_max": true,
+            "title": "",
+            "content": "<p>{{ product.metafields.my_fields.key_ingredient_7 | metafield_tag }}<\/p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "a68f8b0d-6000-47f7-86dd-33da853a01dd",
+        "db2cd4cb-355c-4419-a8af-2000a149f457",
+        "49d056a6-d054-473f-8a5c-590b5120f475",
+        "c6f2e138-37b7-4bfc-8551-38b60ca535cc",
+        "06957169-67f2-4e66-b460-f44b9eb24344",
+        "4a0cc2d8-abe8-44b1-8813-3fca525a6d4d",
+        "c17a667d-9dd2-4c7b-a590-c8ea779a79f7"
+      ],
+      "settings": {
+        "show_section": false,
+        "heading": "explore key ingredients in this formula—efficacious and mindfully selected.",
+        "text": "",
+        "qty_row": 8,
+        "aspect_ratio": "1\/1",
+        "heading_color": "#000000",
+        "text_color": "#000000",
+        "heading_size": 29,
+        "text_size": 14,
+        "color_title": "rgba(0,0,0,0)",
+        "color_description": "#2d2929",
+        "block_heading_size": 30,
+        "block_text_size": 13,
+        "use_headingfont": false
+      }
+    },
+    "16413964967e9e1c81": {
+      "type": "slider-words",
+      "settings": {
+        "background": "#000000",
+        "text": "#ffffff",
+        "font_size": 16,
+        "slider_words": "<p>{{ product.metafields.my_fields.ki_slider_ | metafield_tag }}<\/p>"
       }
     },
     "recommendations": {
       "type": "framework--product-recommendations",
       "settings": {
         "product-similar-products-show": true,
-        "product-similar-products-heading": "You may also like"
+        "product-similar-products-heading": "You Might Also Like"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
       }
     }
   },
   "order": [
-    "main",
     "product-video",
     "16412634905ec04333",
     "description",
-    "1641234602aa24da2f",
-    "reviews",
+    "1641433316674ad0af",
     "1641241853c383d5cd",
-    "recommendations"
+    "164160021127c9f478",
+    "1641844647c2aecf59",
+    "16413964967e9e1c81",
+    "recommendations",
+    "reviews"
   ]
 }

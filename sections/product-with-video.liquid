@@ -96,7 +96,7 @@
             </div>
         {% endif %}
 
-      <div class="product-page--cart-form">
+      <div class="product-page--cart-form {% if product.metafields.sistine.video == blank %}mt-20{% endif %}">
         {%
           render "framework--product--form",
           product: product,
