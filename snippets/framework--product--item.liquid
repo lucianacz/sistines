@@ -2,8 +2,6 @@
 {% assign out_of_stock = 'products.out_of_stock' | t %}
 {% assign sale_t = 'products.sale' | t %}
 {% assign from_t = 'products.from' | t %}
-{% assign add_to_cart_t = 'products.add_to_cart' | t %}
-
 
 {% comment %} Variables {% endcomment %}
 {% assign current_variant = product.selected_or_first_available_variant %}
@@ -170,9 +168,6 @@
           {{ display_vendor }}
           {{ display_title }}
           {{ display_prices }}
-          {% if template == 'index' %}
-          {% render 'framework--product--form', product: product %}
-          {% endif %}
         </div>
       </a>
 
@@ -238,7 +233,6 @@
           {{ display_title }}
           {{ display_vendor }}
           {{ display_prices }}
-          {% render 'framework--product--form', product: product %}
         </div>
       </a>
 

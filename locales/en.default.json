@@ -249,7 +249,6 @@
     "addresses": {
       "page_title": "Your Addresses",
       "default": "(Default Address)",
-      "no_addresses": "You haven't saved any addresses.",
       "add_new": "Add a New Address",
       "first_name": "First Name",
       "last_name": "Last Name",
